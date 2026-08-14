@@ -1,10 +1,17 @@
 class MainScene extends Phaser.Scene {
   constructor() {
     super("mainScene");
+    
+    // Touch buttons ki state track karne ke liye flags
+    this.moveState = {
+      left: false,
+      right: false,
+      up: false,
+      down: false
+    };
   }
 
   preload() {
-    // Relative paths with leading dot
     this.load.image("player", "./asset/1785586896114.png");
     this.load.image("coin", "./asset/17879868.png");
   }
@@ -25,25 +32,63 @@ class MainScene extends Phaser.Scene {
 
     this.cursors = this.input.keyboard.createCursorKeys();
 
-    // Custom collision box manually set (Safe approach for Web/GitHub Pages)
     if (this.player.body) {
       this.player.body.setSize(this.player.width * 0.8, this.player.height * 0.8);
     }
     if (this.coin.body) {
       this.coin.body.setSize(this.coin.width * 0.8, this.coin.height * 0.8);
     }
+
+    // Touch Buttons setup karna
+    this.setupTouchControls();
+  }
+
+  setupTouchControls() {
+    const bindTouch = (id, direction) => {
+      const btn = document.getElementById(id);
+      if (!btn) return;
+
+      // Pressing start
+      const startMove = (e) => {
+        e.preventDefault();
+        this.moveState[direction] = true;
+      };
+
+      // Pressing end
+      const stopMove = (e) => {
+        e.preventDefault();
+        this.moveState[direction] = false;
+      };
+
+      btn.addEventListener("touchstart", startMove, { passive: false });
+      btn.addEventListener("touchend", stopMove, { passive: false });
+      btn.addEventListener("mousedown", startMove);
+      btn.addEventListener("mouseup", stopMove);
+      btn.addEventListener("mouseleave", stopMove);
+    };
+
+    bindTouch("btnUp", "up");
+    bindTouch("btnDown", "down");
+    bindTouch("btnLeft", "left");
+    bindTouch("btnRight", "right");
   }
 
   update() {
-    if (this.cursors.left.isDown) {
+    // Keyboard inputs YA Touch Button inputs dono check karega
+    const moveLeft = this.cursors.left.isDown || this.moveState.left;
+    const moveRight = this.cursors.right.isDown || this.moveState.right;
+    const moveUp = this.cursors.up.isDown || this.moveState.up;
+    const moveDown = this.cursors.down.isDown || this.moveState.down;
+
+    if (moveLeft) {
       this.player.x -= 4;
-    } else if (this.cursors.right.isDown) {
+    } else if (moveRight) {
       this.player.x += 4;
     }
 
-    if (this.cursors.up.isDown) {
+    if (moveUp) {
       this.player.y -= 4;
-    } else if (this.cursors.down.isDown) {
+    } else if (moveDown) {
       this.player.y += 4;
     }
 
@@ -67,6 +112,10 @@ const config = {
   height: 400,
   backgroundColor: "#3498db",
   parent: "game",
+  scale: {
+    mode: Phaser.Scale.FIT, // Canvas screen width ke according fit ho jayega
+    autoCenter: Phaser.Scale.CENTER_BOTH
+  },
   physics: {
     default: "arcade",
     arcade: {
