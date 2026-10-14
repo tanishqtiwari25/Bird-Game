@@ -1,109 +1,15 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>My First Phaser Game</title>
-  
-  <!-- Phaser CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/phaser@3/dist/phaser.js"></script>
-  
-  <style>
-    * {
-      box-sizing: border-box;
-      user-select: none; /* Long press text selection block karne ke liye */
-      -webkit-user-select: none;
-    }
-    body {
-      margin: 0;
-      padding: 10px;
-      background: #222;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      font-family: Arial, sans-serif;
-      color: white;
-      min-height: 100vh;
-      touch-action: manipulation;
-    }
-    h1 {
-      margin: 5px 0;
-      font-size: 20px;
-      text-align: center;
-    }
-    p {
-      margin: 5px 0 10px 0;
-      font-size: 14px;
-      text-align: center;
-    }
-    #game {
-      width: 100%;
-      max-width: 700px;
-      display: flex;
-      justify-content: center;
-    }
-
-    /* Touch Controls Container */
-    .controls-container {
-      display: none; /* By default hidden (Desktop ke liye) */
-      margin-top: 15px;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .btn-row {
-      display: flex;
-      gap: 15px;
-    }
-
-    .touch-btn {
-      width: 55px;
-      height: 55px;
-      background-color: #34495e;
-      color: #fff;
-      border: 2px solid #ffffff;
-      border-radius: 12px;
-      font-size: 20px;
-      font-weight: bold;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-      touch-action: none;
-    }
-
-    .touch-btn:active {
-      background-color: #1abc9c;
-      transform: scale(0.95);
-    }
-
-    /* Screen width 768px ya usse kam ho toh controls show karo */
-    @media (max-width: 768px) {
-      .controls-container {
-        display: flex;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <h1>My First Phaser Game</h1>
-  <div id="game"></div>
-  <p>Use Arrow Keys or Screen Buttons to collect coins.</p>
-
-  <!-- Mobile Touch Controls -->
-  <div class="controls-container" id="touchControls">
-    <button class="touch-btn" id="btnUp">▲</button>
-    <div class="btn-row">
-      <button class="touch-btn" id="btnLeft">◀</button>
-      <button class="touch-btn" id="btnDown">▼</button>
-      <button class="touch-btn" id="btnRight">▶</button>
-    </div>
-  </div>
-
-  <script src="./game.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#113e4b" />
+    <meta name="description" content="Skybound — a little bird, a limitless sky. A relaxing 3D flight adventure." />
+    <title>Skybound · A little bird. A limitless sky.</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23113e4b'/%3E%3Cpath d='M12 24l20 8 20-8-20 23z' fill='%237ae3cc'/%3E%3C/svg%3E" />
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
 </html>
