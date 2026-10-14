@@ -64,7 +64,7 @@ h1 em { font-family: Georgia, serif; font-weight: 400; color: #2b8482; }
 .coin-block .coin-icon { font-size: 25px; color: #c79429; }
 .coin-block strong { font-size: 23px; font-weight: 500; }
 .level-block strong { display: block; margin-top: 5px; font-size: 12px; white-space: nowrap; font-weight: 500; }
-.bottom-hud { position: absolute; bottom: 65px; left: 5.2%; right: 5.2%; display: flex; align-items: end; justify-content: space-between; gap: 20px; z-index: 3; pointer-events: none; }
+.bottom-hud { position: absolute; bottom: 65px; left: 5.2%; right: 5.2%; display: flex; flex-direction: row-reverse; align-items: end; justify-content: space-between; gap: 20px; z-index: 3; pointer-events: none; }
 .route-card { background: rgba(248,255,249,.72); backdrop-filter: blur(16px); border: 1px solid #ffffffe0; border-radius: 18px; padding: 18px 20px; width: 305px; }
 .route-heading { display: flex; align-items: center; gap: 10px; }
 .tiny-bird { border: 1px solid #68948935; width: 33px; height: 33px; border-radius: 10px; display: flex; align-items: center; justify-content: center; }
@@ -95,7 +95,7 @@ h1 em { font-family: Georgia, serif; font-weight: 400; color: #2b8482; }
 .level-toast.visible { opacity: 1; transform: translate(-50%, 0); }
 .level-toast > span { font-size: 9px; letter-spacing: 4px; display: block; margin-bottom: 10px; }
 .level-toast strong { font-family: Georgia, serif; font-size: 40px; font-weight: 400; font-style: italic; }
-.joystick { display: none; position: absolute; bottom: 100px; left: 30px; width: 100px; height: 100px; border: 1px solid #ffffffa0; border-radius: 50%; background: #e8f9ef38; backdrop-filter: blur(5px); align-items: center; justify-content: center; touch-action: none; z-index: 4; }
+.joystick { display: none; position: absolute; bottom: 100px; right: 30px; width: 100px; height: 100px; border: 1px solid #ffffffa0; border-radius: 50%; background: #e8f9ef38; backdrop-filter: blur(5px); align-items: center; justify-content: center; touch-action: none; z-index: 4; }
 .stick { width: 43px; height: 43px; border-radius: 50%; background: #edfdf4a0; border: 1px solid #fff; box-shadow: 0 3px 12px #36676620; pointer-events: none; }
 .glass-dialog { border: 1px solid #ffffffd0; padding: 40px; border-radius: 28px; background: #f2fcf1ed; color: var(--ink); box-shadow: 0 30px 90px #123c4825; backdrop-filter: blur(30px); width: min(460px, 92vw); }
 .glass-dialog::backdrop { background: #163d4c42; backdrop-filter: blur(6px); }
@@ -150,10 +150,10 @@ h1 em { font-family: Georgia, serif; font-weight: 400; color: #2b8482; }
   .bottom-hud .route-card { width: 100%; margin-bottom: 0; order: 3; padding: 13px 16px; }
   .combo-card { padding: 9px 14px; gap: 8px; margin-left: 0; }
   .combo-card > span { font-size: 23px; } .combo-card strong { font-size: 6px; }
-  .boost-card { width: 136px; margin-left: auto; }
+  .boost-card { width: 136px; margin-right: auto; }
   #boost-btn { padding: 12px 16px; }
   #boost-btn span { font-size: 9px; } #boost-btn kbd { display: none; }
-  .joystick { display: flex; bottom: 195px; left: 26px; width: 84px; height: 84px; }
+  .joystick { display: flex; bottom: 215px; right: 26px; width: 84px; height: 84px; }
   .notice { top: 181px; font-size: 10px; padding: 10px 15px; width: max-content; max-width: 88%; }
   .level-toast { top: 30%; width: 100%; } .level-toast strong { font-size: 32px; }
   .glass-dialog { padding: 29px; }
