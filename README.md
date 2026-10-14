@@ -88,7 +88,9 @@ npm run build
 npm run preview
 ```
 
-`dist/` is the deployable static output. Vite must build the source before GitHub Pages deployment; copying the raw Three.js source to Pages does not resolve npm imports. The existing CNAME and original `asset/` files can remain in the repository; the 3D game uses generated primitives instead of those sprite images. Copy CNAME into `dist/` for a custom-domain deployment if required. No deployment was performed.
+`dist/` is the deployable static output. Vite must build the source before GitHub Pages deployment; copying the raw Three.js source to Pages does not resolve npm imports. The existing CNAME and original `asset/` files can remain in the repository; the 3D game uses generated primitives instead of those sprite images.
+
+`.github/workflows/pages.yml` installs locked dependencies, checks the FSD boundaries, runs tests, builds the game, retains the custom domain, and deploys only `dist/` on pushes to `main`. GitHub Pages must use **GitHub Actions** as its publishing source. The existing custom domain is `bird.realtanishqtiwari.in`. CSS is linked as a stylesheet in the source HTML; Vite emits separate hashed JavaScript and CSS files for production. Avoid serving the source folder through GitHub Pages or Live Server; use `npm run dev` locally or publish the compiled build.
 
 ## Phase 1 checklist
 
